@@ -1,6 +1,4 @@
 RSpec.describe "doubles" do
-  # Change `xit` to `it` one by one as you work through.
-
   xit "sets up a blank double" do
     # Set up your doubles here
     fake_object = # ...
