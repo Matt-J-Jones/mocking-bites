@@ -5,11 +5,12 @@ require 'net/http'
 class TimeError
   # Returns difference in seconds between server time
   # and the time on this computer
-  def initialize(responder)
-    @responder = responder # Net::HTTP
-  
-  def error
-    return get_server_time - Time.now
+  def initialize(responder = Net::HTTP)
+    @responder = responder
+  end
+
+  def error(time = Time.now)
+    return get_server_time - time
   end
 
   private
@@ -20,3 +21,6 @@ class TimeError
     return DateTime.parse(json["utc_datetime"]).to_time
   end
 end
+
+time_check = TimeError.new
+puts time_check.error
